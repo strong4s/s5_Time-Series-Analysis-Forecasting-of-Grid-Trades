@@ -5,21 +5,21 @@ GUI-assisted EDA &amp; visualization using DTale.
 The Historical Grid Trade Master Agreements (GTMA) data is accessed from https://data.nationalgrideso.com/, the data portal of the UK National Grid ESO (UK NGESO). This project is **supported by National Grid ESO Open Data**.
 The GTMA's represent the planned trades that the UK NGESO conducts to maintain grid balance where there is a foreseen energy requirement. Aside from ensuring system security where there is constraints, this function helps to keep the balancing mechanism at minimum cost. 
 
-Visuallizations are mostly done through DTale and plotly graphic objects. The mean arctangent absolute percentage error is the sole criterion for model evaluation, due to the transformed target feature, Cost, having zero and negative values.
+Visuallizations are mostly done through DTale and plotly graphic objects. The mean arctangent absolute percentage error is the criterion for model evaluation, due to the transformed target feature, Cost, having zero and negative values.
 
 ### Objectives
 * Practice time series analysis on real-world data, from data preprocessing up until forecasting.
 * Practice GUI-assisted EDA &amp; visualization using DTale.
-* Practice ARIMA model optimization with pmdARIMA.
+* Practice SARIMA model optimization with pmdARIMA.
 
 ## Outline
-1. n1_Data Preprocessing & Feature Engineering -- Loads dataframes as downloaded from NG ESO data portal. Uses DTale for EDA and visuallization. Assigns new Start & End Dates as parsed from original data. Splits the dataset into two major categories: System Trades and Energy Trades.
+1. Data Preprocessing & Feature Engineering -- Loads dataframes as downloaded from NG ESO data portal. Uses DTale for EDA and visuallization. Assigns new Start & End Dates as parsed from original data. Splits the dataset into two major categories: System Trades and Energy Trades.
 
-2. n2_Trend & Seasonality Decomposition -- Trend & Seasonality Decomposition using LOESS, and anomaly detection through residuals analysis. Insight gathered here is basis for long-term forecasting in the following notebooks.  
+2. Trend & Seasonality Decomposition -- Trend & Seasonality Decomposition using LOESS, and anomaly detection through residuals analysis. Insight gathered here is basis for long-term forecasting in the following notebooks.  
  
-3. n3_Forecasting with ExponentialSmoothing -- Resamples data in daily frequencies, then scales it through a Yeo-Johnson power transformer. Defines the train & test dataframes through a dictionary, and a specified forecast period, respectively.
+3. Forecasting with ExponentialSmoothing -- Resamples data in daily frequencies, then scales it through a Yeo-Johnson power transformer. Defines the train & test dataframes through a dictionary, and a specified forecast period, respectively.
    
-4. n4_Forecasting with pmdARIMA -- Data is similar to previous notebook **EXCEPT** by resampling the data in **monthly** frequencies. Automates selection of best model from a range of p, d, q, P, D, and Q values, in a manner similar to grid-search; with AICC as the optimization criterion.
+4. Forecasting with pmdARIMA -- Data is similar to previous notebook **EXCEPT** by resampling the data in **monthly** frequencies. Automates selection of best model from a range of p, d, q, P, D, and Q values, in a manner similar to grid-search; with AICC as the optimization criterion.
 
 ## Notes
 * Variables naming convention -- First, by describing what they are, and then their specifics follow. Ex.: df_train for a *dataframe* of the *train* dataset; model_arima_enrM_101  for an *ARIMA model* of the *Energy Trades* dataset *resampled Monthly*, with order *(101)*.
